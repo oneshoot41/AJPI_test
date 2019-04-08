@@ -1,5 +1,6 @@
 <h1><%= month.name %></h1>
 <p>
+  <%= link_to("Ajouter une Facture Client", "/customer_invoices/new", class: "btn btn-light btn-sm") -%>
   <%= link_to("Back", "/months", class: "btn btn-light btn-sm") -%>
   <%= link_to("Edit", "/months/#{month.id}/edit", class: "btn btn-success btn-sm") -%>
   <%= link_to("Delete", "/months/#{month.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm") -%>

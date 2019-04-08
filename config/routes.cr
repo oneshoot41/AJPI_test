@@ -33,6 +33,7 @@ Amber::Server.configure do
     resources "/providers", ProviderController
     resources "/years", YearController
     resources "/months", MonthController
+    get "/invoices", HomeController, :invoices
     get "/", HomeController, :index
   end
 

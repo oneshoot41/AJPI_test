@@ -6,12 +6,28 @@
   <%- end %>
 
   <div class="form-group">
-    <select name="name" class="form-control" id="select">
+
+    <%= text_field(name: "name", value: customer_invoice.name, placeholder: "Intitulé de la Facture", class: "") -%>
+
+    <select name="customer_id" class="form-control" id="select">
       <%- customers.each do |customer| %>
-        <option value="<%= customer.name %>"><%= customer.name %> <input type="hidden" name="customer_id" value="<%= customer.id %>"></option>
+        <option value="<%= customer.id %>"><%= customer.name %></option>
       <%- end %>
     </select>
-    <%= text_field(name: "amount", value: customer_invoice.amount, placeholder: "0.00", class: "") -%>
+
+    <input type="text" name="amount" placeholder="0.00" value="<%= customer_invoice.amount %>">
+
+    <label for="paid">Payé ?</label>
+    <input type="checkbox" name="paid" class="checkbox" value="<%= customer_invoice.paid %>">
+
+    <label for="estimated">Prévisionnel</label>
+    <input type="checkbox" name="estimated" class="checkbox" value="<%= customer_invoice.estimated %>">
+
+    <select name="type" class="form-control" id="select">
+        <option value="C1">C1</option>
+        <option value="C2">C2</option>
+    </select>
+
   </div>
   <%= submit("Valider", class: "btn btn-success btn-sm") -%>
   <%= link_to("Back", "/customer_invoices", class: "btn btn-light btn-sm") -%>
