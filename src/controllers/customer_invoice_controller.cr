@@ -11,18 +11,22 @@ class CustomerInvoiceController < ApplicationController
     end
   
     def show
+      customers = Customer.all
       render "show.ecr"
     end
   
     def new
+      customers = Customer.all
       render "new.ecr"
     end
   
     def edit
+      customers = Customer.all
       render "edit.ecr"
     end
   
     def create
+        customers = Customer.all
         customer_invoice = CustomerInvoice.new customer_invoice_params.validate!
       if customer_invoice.save
         redirect_to action: :index, flash: {"success" => "Facture client créée"}
@@ -33,6 +37,7 @@ class CustomerInvoiceController < ApplicationController
     end
   
     def update
+        customers = Customer.all
         customer_invoice.set_attributes customer_invoice_params.validate!
       if customer_invoice.save
         redirect_to action: :index, flash: {"success" => "Facture client éditée"}

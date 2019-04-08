@@ -1,0 +1,18 @@
+<%- action = (customer_invoice.id ? "/customer_invoices/" + customer_invoice.id.to_s : "/customer_invoices") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if customer_invoice.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <select name="name" class="form-control" id="select">
+      <%- customers.each do |customer| %>
+        <option value="<%= customer.name %>"><%= customer.name %> <input type="hidden" name="customer_id" value="<%= customer.id %>"></option>
+      <%- end %>
+    </select>
+    <%= text_field(name: "amount", value: customer_invoice.amount, placeholder: "0.00", class: "") -%>
+  </div>
+  <%= submit("Valider", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Back", "/customer_invoices", class: "btn btn-light btn-sm") -%>
+</form>

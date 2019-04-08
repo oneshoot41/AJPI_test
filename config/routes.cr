@@ -28,6 +28,7 @@ Amber::Server.configure do
   end
 
   routes :web do
+    resources "/customer_invoices", CustomerInvoiceController
     resources "/customers", CustomerController
     resources "/providers", ProviderController
     resources "/years", YearController
