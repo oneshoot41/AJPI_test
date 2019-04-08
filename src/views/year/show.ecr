@@ -1,0 +1,38 @@
+<h1><%= year.name %></h1>
+
+<form action="/months" method="post" class="border">
+  <%= csrf_tag %>
+
+  <div class="form-group">
+    <label for="select">Séléctionner un mois à ajouter</label>
+    <select name="name" class="form-control" id="select">
+      <option value="Janvier">Janvier</option>
+      <option value="Février">Février</option>
+      <option value="Mars">Mars</option>
+      <option value="Avril">Avril</option>
+      <option value="Mai">Mai</option>
+      <option value="Juin">Juin</option>
+      <option value="Juillet">Juillet</option>
+      <option value="Aout">Aout</option>
+      <option value="Septembre">Septembre</option>
+      <option value="Octobre">Octobre</option>
+      <option value="Novembre">Novembre</option>
+      <option value="Décembre">Décembre</option>
+    </select>
+    <%= hidden_field(name: "year_id", value: year.id) -%>
+  </div>
+  <%= submit("Ajouter un Mois", class: "btn btn-success btn-sm") -%>
+</form>
+
+<ul class="list-reset">
+  <%- months.each do |month| %>
+  <li class="inline-flex">
+    <p><%= month.name %></p><%= link_to("Voir", "/months/#{month.id}", class: "no-underline") -%>
+  </li>
+  <%- end %>
+</ul>
+<p>
+  <%= link_to("Back", "/years", class: "btn btn-light btn-sm") -%>
+  <%= link_to("Edit", "/years/#{year.id}/edit", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Delete", "/years/#{year.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm") -%>
+</p>

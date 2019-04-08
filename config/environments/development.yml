@@ -21,7 +21,7 @@ process_count: 1
 # ssl_key_file:
 # ssl_cert_file:
 redis_url: "redis://localhost:6379"
-database_url: mysql://root@localhost:3306/test_development
+database_url: mysql://mulfen:Azertyuiop41@localhost:3306/test_development
 auto_reload: true
 
 session:

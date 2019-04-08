@@ -1,0 +1,13 @@
+<%- action = (month.id ? "/months/" + month.id.to_s : "/months") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if month.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <%= text_field(name: "name", value: month.name, placeholder: "Name", class: "form-control") -%>
+  </div>
+  <%= submit("Submit", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Back", "/months", class: "btn btn-light btn-sm") -%>
+</form>

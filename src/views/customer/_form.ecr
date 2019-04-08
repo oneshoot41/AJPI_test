@@ -1,0 +1,13 @@
+<%- action = (customer.id ? "/customers/" + customer.id.to_s : "/customers") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if customer.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <%= text_field(name: "name", value: customer.name, placeholder: "Nom ou raison sociale", class: "form-control") -%>
+  </div>
+  <%= submit("Valider", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Back", "/customers", class: "btn btn-light btn-sm") -%>
+</form>

@@ -1,0 +1,13 @@
+<%- action = (provider.id ? "/providers/" + provider.id.to_s : "/providers") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if provider.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <%= text_field(name: "name", value: provider.name, placeholder: "Name", class: "form-control") -%>
+  </div>
+  <%= submit("Submit", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Back", "/providers", class: "btn btn-light btn-sm") -%>
+</form>

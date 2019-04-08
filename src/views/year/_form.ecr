@@ -1,0 +1,13 @@
+<%- action = (year.id ? "/years/" + year.id.to_s : "/years") %>
+<form action="<%= action %>" method="post">
+  <%= csrf_tag %>
+  <%- if year.id %>
+  <input type="hidden" name="_method" value="patch" />
+  <%- end %>
+
+  <div class="form-group">
+    <%= text_field(name: "name", value: year.name, placeholder: "Name", class: "form-control") -%>
+  </div>
+  <%= submit("Submit", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Back", "/years", class: "btn btn-light btn-sm") -%>
+</form>

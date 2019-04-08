@@ -1,0 +1,7 @@
+<h1>Show <%= customer.name %></h1>
+
+<p>
+  <%= link_to("Back", "/customers", class: "btn btn-light btn-sm") -%>
+  <%= link_to("Edit", "/customers/#{customer.id}/edit", class: "btn btn-success btn-sm") -%>
+  <%= link_to("Delete", "/customers/#{customer.id}?_csrf=#{csrf_token}", "data-method": "delete", "data-confirm": "Are you sure?", class: "btn btn-danger btn-sm") -%>
+</p>

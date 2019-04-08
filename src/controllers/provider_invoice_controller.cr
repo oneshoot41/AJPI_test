@@ -1,0 +1,3 @@
+class ProviderInvoiceController < ApplicationController
+
+end

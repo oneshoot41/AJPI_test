@@ -28,6 +28,10 @@ Amber::Server.configure do
   end
 
   routes :web do
+    resources "/customers", CustomerController
+    resources "/providers", ProviderController
+    resources "/years", YearController
+    resources "/months", MonthController
     get "/", HomeController, :index
   end
 
